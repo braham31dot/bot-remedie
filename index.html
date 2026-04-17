@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remedy Chat - Traditional Wellness Guidance</title>
+    
+    <!-- Favicon for browser -->
     <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2310b981;stop-opacity:1' /><stop offset='100%' style='stop-color:%238b5cf6;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='192' height='192' rx='32'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>Rx</text></svg>">
+    
+    <!-- Apple Touch Icon for iOS -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2310b981;stop-opacity:1' /><stop offset='100%' style='stop-color:%238b5cf6;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='180' height='180' rx='40'/><text x='50%' y='50%' font-size='90' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>Rx</text></svg>">
+    
+    <!-- Android Chrome Icon -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2310b981;stop-opacity:1' /><stop offset='100%' style='stop-color:%238b5cf6;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='192' height='192' rx='45'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>Rx</text></svg>">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;Remedy Chat&quot;,&quot;short_name&quot;:&quot;Remedy&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 192 192%27><defs><linearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27><stop offset=%270%25%27 style=%27stop-color:%2310b981;stop-opacity:1%27 /><stop offset=%27100%25%27 style=%27stop-color:%238b5cf6;stop-opacity:1%27 /></linearGradient></defs><rect fill=%27url(%23grad)%27 width=%27192%27 height=%27192%27 rx=%2745%27/><text x=%2750%25%27 y=%2750%25%27 font-size=%27100%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27 font-family=%27Arial%27>Rx</text></svg>&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;,&quot;purpose&quot;:&quot;any&quot;}],&quot;start_url&quot;:&quot;/&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;#ffffff&quot;,&quot;theme_color&quot;:&quot;#10b981&quot;}">
+    
+    <meta name="theme-color" content="#10b981">
+    <meta name="description" content="Traditional wellness guidance from African, Asian, and Islamic healing traditions.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Remedy Chat">
+    
     <style>
         :root {
             --background: #f8fafc;
@@ -51,6 +69,13 @@
             color: var(--foreground);
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        input, select, textarea, button {
+            -webkit-user-select: text;
+            user-select: text;
         }
 
         .loading-screen {
@@ -92,6 +117,8 @@
             flex-direction: column;
             min-height: 100vh;
             background-color: var(--background);
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .chat-header {
@@ -100,6 +127,8 @@
             padding: 1.5rem 1rem;
             text-align: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .chat-header h1 {
@@ -121,6 +150,8 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            -webkit-user-select: text;
+            user-select: text;
         }
 
         .message {
@@ -237,6 +268,10 @@
             .chat-header h1 {
                 font-size: 1.5rem;
             }
+
+            .chat-form {
+                padding: 1rem;
+            }
         }
 
         label {
@@ -245,6 +280,8 @@
             font-weight: 600;
             color: var(--foreground);
             margin-bottom: 0.5rem;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         select {
@@ -282,6 +319,8 @@
             cursor: pointer;
             transition: all 0.2s;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         button:hover:not(:disabled) {
@@ -377,7 +416,7 @@
 
         const remedies = {
             African: {
-                "STD": "CRITICAL: There are no home remedies for STDs. Seek immediate professional medical testing and treatment.",
+                "STD": "⚠️ IMPORTANT MEDICAL ADVISORY\n\nWhile African traditional medicine offers various supportive remedies, sexually transmitted infections REQUIRE professional medical diagnosis and treatment.\n\nTraditional African approaches for STI support:\n\n🌿 Supportive Care:\n• Ginger and garlic tea boosts immune response\n• Turmeric with honey strengthens immunity\n• Moringa leaf tea provides vital nutrients\n• Adequate rest and hydration are essential\n• Nutritious diet with vegetables and proteins\n\n⚠️ HOWEVER - You MUST:\n✓ See a doctor for proper testing\n✓ Get professional diagnosis\n✓ Use prescribed medical treatment\n✓ Inform partners for their health\n✓ Follow medical advice completely\n\nTraditional remedies complement but NEVER replace professional medical treatment for STIs.",
                 "flu": "Use ginger tea with honey and lemon to soothe symptoms. Garlic has antimicrobial properties. Rest and stay hydrated. Traditional African medicine suggests elderberry extracts.",
                 "acne": "Apply tea tree oil or neem oil topically. Turmeric paste mixed with coconut oil can reduce inflammation. Drink plenty of water and avoid sugary foods.",
                 "anxiety": "Chamomile and lavender tea can promote relaxation. Practice deep breathing exercises. Ashwagandha root tea is traditionally used to calm the nervous system.",
@@ -414,7 +453,7 @@
                 "immune support": "Elderberry, echinacea, and astragalus boost immunity. Garlic and ginger are essential. Sleep and exercise matter."
             },
             Asian: {
-                "STD": "CRITICAL: There are no home remedies for STDs. Seek immediate professional medical testing and treatment.",
+                "STD": "⚠️ IMPORTANT MEDICAL ADVISORY\n\nWhile Asian traditional medicine offers various supportive remedies, sexually transmitted infections REQUIRE professional medical diagnosis and treatment.\n\nTraditional Asian approaches for STI support:\n\n🌿 Supportive Care:\n• Ginseng strengthens vital energy (Qi)\n• Goji berries nourish and support wellness\n• Astragalus root boosts immune function\n• Reishi mushroom supports resilience\n• Adequate rest and hydration essential\n\n⚠️ HOWEVER - You MUST:\n✓ See a doctor for proper testing\n✓ Get professional diagnosis\n✓ Use prescribed medical treatment\n✓ Inform partners for their health\n✓ Follow medical advice completely\n\nTraditional remedies complement but NEVER replace professional medical treatment for STIs.",
                 "flu": "Ginger and turmeric soup with chicken broth is traditional. Garlic and onions have antiviral properties. Rest is essential.",
                 "acne": "Green tea reduces sebum production. Turmeric masks have been used for centuries. Witch hazel helps balance skin.",
                 "anxiety": "Meditation and tai chi practice. Ginseng supports nervous system. Chamomile and jasmine tea are calming.",
@@ -451,7 +490,7 @@
                 "immune support": "Ginseng boosts immunity. Goji berries are nutrient-dense. Mushrooms like reishi support wellness."
             },
             Islamic: {
-                "STD": "CRITICAL: There are no home remedies for STDs. Seek immediate professional medical testing and treatment.",
+                "STD": "⚠️ IMPORTANT MEDICAL ADVISORY\n\nWhile Islamic traditional medicine offers various supportive remedies, sexually transmitted infections REQUIRE professional medical diagnosis and treatment.\n\nTraditional Islamic approaches for STI support:\n\n🌿 Supportive Care:\n• Black seed (Nigella sativa) - highly valued in Islamic medicine\n• Honey for immune and healing support\n• Prayer and spiritual wellness\n• Adequate rest and hydration\n• Nutritious diet with halal foods\n\n⚠️ HOWEVER - You MUST:\n✓ See a doctor for proper testing\n✓ Get professional diagnosis\n✓ Use prescribed medical treatment\n✓ Inform partners for their health\n✓ Follow medical advice completely\n\nIn Islamic teaching, seeking professional medical care is a duty (Fard). Traditional remedies complement but NEVER replace professional medical treatment for STIs.",
                 "flu": "Black seed (nigella sativa) has powerful immune properties. Honey and ginger tea is traditional. Stay hydrated and rest.",
                 "acne": "Rose water cleanses gently. Honey masks are beneficial. Avoid excessive oil and keep skin clean.",
                 "anxiety": "Quranic recitation and prayer bring peace. Dates provide energy and calm. Meditation helps.",
@@ -490,13 +529,14 @@
         };
 
         function getRemedy(tradition, concern) {
-            if (concern === "STD") {
-                return "🚨 IMPORTANT MEDICAL WARNING\n\nThere are NO home remedies or traditional cures for sexually transmitted infections (STDs/STIs). If you suspect you have an STD:\n\n✓ Seek professional medical testing immediately\n✓ Get proper diagnosis and treatment from a doctor\n✓ Early treatment prevents serious complications\n✓ Treatment is confidential and effective\n\nDo not delay—professional medical care is essential.";
-            }
-            
             const advice = remedies[tradition]?.[concern];
             if (!advice) {
                 return "Please rest, stay hydrated, and consult a healthcare professional if symptoms persist.";
+            }
+            
+            // Add safety warning to all remedies except STD (which has its own medical advisory)
+            if (concern === "STD") {
+                return advice;
             }
             
             return `${advice}\n\n${SAFETY_WARNING}`;
